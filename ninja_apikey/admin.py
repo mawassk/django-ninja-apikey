@@ -29,12 +29,14 @@ class APIKeyAdmin(admin.ModelAdmin):
             obj.prefix = key.prefix
             obj.hashed_key = key.hashed_key
 
-            messages.add_message(
-                request,
-                messages.WARNING,
-                f"The API key for {obj} is '{key.prefix}.{key.key}'."
-                "You should store it somewhere safe: "
-                "you will not be able to see the key again.",
-            )
+            if request:
+                messages.add_message(
+                    request,
+                    messages.WARNING,
+                    f"The API key for {obj} is '{key.prefix}.{key.key}'."
+                    "You should store it somewhere safe: "
+                    "you will not be able to see the key again.",
+                )
 
         obj.save()
+        return obj
