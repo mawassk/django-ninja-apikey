@@ -22,6 +22,7 @@ class APIKeyAdmin(admin.ModelAdmin):
     ]
     readonly_fields = ["prefix", "hashed_key", "created_at"]
     actions = [revoke_key]
+    list_filter = ["revoked"]
 
     @admin.display
     def is_active(self, obj: APIKey):
