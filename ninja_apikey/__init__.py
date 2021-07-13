@@ -1,6 +1,21 @@
 from functools import lru_cache
 
-from .security import APIKeyAuth
+from ninja.security import APIKeyHeader
+
+from .security import check_apikey
+
+
+class APIKeyAuth(APIKeyHeader):
+    param_name = "X-API-Key"
+
+    def authenticate(self, request, key):
+        user = check_apikey(key)
+
+        if not user:
+            return False
+
+        request.user = user
+        return user
 
 
 @lru_cache
