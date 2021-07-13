@@ -33,3 +33,26 @@ jobs:
         run: poetry run black --check --diff --color .
       - name: Run flake8
         run: poetry run flake8
+
+  run-pytest:
+    name: Run pytest
+
+    strategy:
+      matrix:
+        python-version: [3.6.2,3.7,3.8,3.9]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Display Python version
+        run: python -V
+      - name: Install poetry
+        run: python -m pip install poetry
+      - name: Install requirements
+        run: poetry install
+      - name: Run pytest
+        run: poetry run pytest -v sample_project ninja_apikey
