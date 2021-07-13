@@ -37,6 +37,8 @@ jobs:
   run-pytest:
     name: Run pytest
 
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
         python-version: [3.6.2,3.7,3.8,3.9]
