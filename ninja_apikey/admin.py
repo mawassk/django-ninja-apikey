@@ -4,6 +4,11 @@ from .models import APIKey
 from .security import generate_key
 
 
+@admin.action(description="Revoke selected API keys")
+def revoke_key(modeladmin, request, queryset):
+    queryset.update(revoked=True)
+
+
 @admin.register(APIKey)
 class APIKeyAdmin(admin.ModelAdmin):
     list_display = [
@@ -16,6 +21,7 @@ class APIKeyAdmin(admin.ModelAdmin):
         "is_active",
     ]
     readonly_fields = ["prefix", "hashed_key", "created_at"]
+    actions = [revoke_key]
 
     @admin.display
     def is_active(self, obj: APIKey):
