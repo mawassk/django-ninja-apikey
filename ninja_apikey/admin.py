@@ -33,7 +33,7 @@ class APIKeyAdmin(admin.ModelAdmin):
                 request,
                 messages.WARNING,
                 f"The API key for {obj} is '{key.prefix}.{key.key}'."
-                "You should store it somewhere safe:"
+                "You should store it somewhere safe: "
                 "you will not be able to see the key again.",
             )
 

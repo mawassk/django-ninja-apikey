@@ -9,4 +9,4 @@ api = NinjaAPI(title="Sample API", docs_url="/", auth=auth)
 
 @api.get("/hello")
 def hello(request):
-    return f"Hello, {request.user}"
+    return f"Hello, {request.user}!"
