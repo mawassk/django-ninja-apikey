@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "django-ninja-apikey"
+version = "0.1.0"
+description = ""
+authors = ["Maximilian Wassink <wassink.maximilian@protonmail.com>"]
+packages = [{ include = "ninja_apikey" }]
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+Django = ">=2.0.13"
+django-ninja = ">=0.13"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.9.2"
+black = "^21.6b0"
+flake8 = "^3.9.2"
+pytest = "^6.2.4"
+pytest-django = "^4.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
