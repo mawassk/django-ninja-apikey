@@ -80,3 +80,4 @@ def test_admin_save():
     assert key
     assert key.prefix
     assert key.hashed_key
+    assert key.user == user
