@@ -32,15 +32,16 @@ Secure an api endpoint with the API keys:
 # api.py
 
 from ninja import NinjaAPI
-from ninja_apikey import apikey_auth
+from ninja_apikey.security import APIKeyAuth
 
 #  ...
 
+auth = APIKeyAuth()
 api = NinjaAPI()
 
 # ...
 
-@api.get("/secure_endpoint", auth=apikey_auth())
+@api.get("/secure_endpoint", auth=auth)
 def secure_endpoint(request):
     return f"Hello, {request.user}!" 
 ```
@@ -49,11 +50,11 @@ Or secure your whole api (or a specific [router](https://django-ninja.rest-frame
 # api.py
 
 from ninja import NinjaAPI
-from ninja_apikey import apikey_auth
+from ninja_apikey.security import APIKeyAuth
 
 #  ...
 
-api = NinjaAPI(auth=apikey_auth())
+api = NinjaAPI(auth=APIKeyAuth())
 
 # ...
 

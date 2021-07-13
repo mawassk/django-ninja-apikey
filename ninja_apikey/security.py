@@ -2,6 +2,7 @@ from collections import namedtuple
 
 from django.contrib.auth.hashers import check_password, make_password
 from django.utils.crypto import get_random_string
+from ninja.security import APIKeyHeader
 
 from .models import APIKey
 
@@ -47,3 +48,16 @@ def check_apikey(api_key: str):
         return False
 
     return user
+
+
+class APIKeyAuth(APIKeyHeader):
+    param_name = "X-API-Key"
+
+    def authenticate(self, request, key):
+        user = check_apikey(key)
+
+        if not user:
+            return False
+
+        request.user = user
+        return user
