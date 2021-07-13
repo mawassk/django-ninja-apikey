@@ -40,7 +40,7 @@ api = NinjaAPI()
 
 # ...
 
-@api.get("/secure_endpoint", auth=apikey_auth)
+@api.get("/secure_endpoint", auth=apikey_auth())
 def secure_endpoint(request):
     return f"Hello, {request.user}!" 
 ```
@@ -53,7 +53,7 @@ from ninja_apikey import apikey_auth
 
 #  ...
 
-api = NinjaAPI(auth=apikey_auth)
+api = NinjaAPI(auth=apikey_auth())
 
 # ...
 
