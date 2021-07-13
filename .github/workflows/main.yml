@@ -28,7 +28,7 @@ jobs:
       - name: Install requirements
         run: poetry install
       - name: Run isort
-        run: poetry run isort --check --diff *
+        run: poetry run isort --check --diff ninja_apikey sample_project
       - name: Run black
         run: poetry run black --check --diff --color .
       - name: Run flake8
