@@ -1,7 +1,7 @@
 name: Deploy release
 
 on:
-  relase:
+  release:
     types: [published]
 
 jobs:
