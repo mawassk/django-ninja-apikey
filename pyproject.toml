@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "ninja_apikey"
+name = "django-ninja-apikey"
 authors = [{name = "Maximilian Wassink", email="wassink.maximilian@protonmail.com"}]
 readme = "README.md"
 requires-python = "~=3.6.2"
@@ -55,3 +55,6 @@ test = [
     "mypy",
     "django-stubs",
     ]
+
+[tool.flit.module]
+name = "ninja_apikey"

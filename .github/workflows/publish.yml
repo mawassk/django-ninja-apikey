@@ -18,6 +18,6 @@ jobs:
         run: pip install flit
       - name: Publish
         env:
-          FLIT_USERNAME: __token__
-          FLIT_PASSWORD: ${{ secrets.PYPY_API_TOKEN }}
+          FLIT_USERNAME: ${{ secrets.FLIT_USERNAME }}
+          FLIT_PASSWORD: ${{ secrets.FLIT_PASSWORD }}
         run: flit publish
