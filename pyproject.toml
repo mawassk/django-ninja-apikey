@@ -1,12 +1,12 @@
-[tool.poetry]
-name = "django-ninja-apikey"
-version = "0.1.0"
-description = "Easy to use API key authentication for Django Ninja REST Framework"
-license = "MIT"
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "ninja_apikey"
+authors = [{name = "Maximilian Wassink", email="wassink.maximilian@protonmail.com"}]
 readme = "README.md"
-homepage = "https://github.com/mawassk/django-ninja-apikey"
-repository = "https://github.com/mawassk/django-ninja-apikey"
-keywords = ["django", "rest", "ninja", "auth", "apikey"]
+requires-python = "~=3.6.2"
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
@@ -35,24 +35,25 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Application Frameworks",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-authors = ["Maximilian Wassink <wassink.maximilian@protonmail.com>"]
-packages = [{ include = "ninja_apikey" }]
+dynamic = ["version", "description"]
+keywords = ["django", "rest", "ninja", "auth", "apikey"]
+dependencies = [
+    "django ~=2.0.13",
+    "django-ninja ~=0.13"
+]
 
-[tool.poetry.dependencies]
-python = "^3.6.2"
-Django = ">=2.0.13"
-django-ninja = ">=0.13"
+[project.urls]
+Source = "https://github.com/mawassk/django-ninja-apikey"
 
-[tool.poetry.dev-dependencies]
-isort = "^5.9.2"
-black = "^21.6b0"
-flake8 = "^3.9.2"
-pytest = "^6.2.4"
-pytest-django = "^4.4.0"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.isort]
-profile = "black"
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-django",
+    "black",
+    "isort",
+    "flake8",
+    "flake8-bugbear",
+    "flake8-bandit",
+    "mypy",
+    ]
