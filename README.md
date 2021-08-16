@@ -1,4 +1,27 @@
-# Django Ninja APIKey - Easy to use API key authentication for Django Ninja REST Framework
+<div align="center">
+    <h3>Django Ninja APIKey</h3>
+    <em>Easy to use API key authentication for Django Ninja REST Framework</em>
+</div>
+<br>
+<div align="center">
+    <p>
+        <a href="https://github.com/mawassk/django-ninja-apikey/actions/workflows/build.yml?query=branch%3Amain++" target="_blank">
+            <img src="https://github.com/mawassk/django-ninja-apikey/workflows/build/badge.svg?branch=main" alt="build">
+        </a>
+        <a href="https://codecov.io/gh/mawassk/django-ninja-apikey" target="_blank">
+            <img src="https://img.shields.io/codecov/c/github/mawassk/django-ninja-apikey?color=%2334D058" alt="coverage">
+        </a>
+        <a href="https://pypi.org/project/django-ninja-apikey/">
+            <img src="https://img.shields.io/pypi/v/django-ninja-apikey?color=%2334D058&label=pypi%20package" alt="pypi">
+        </a>
+        <a href="https://github.com/psf/black" target="_blank">
+            <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="black">
+        </a>
+    </p>
+</div>
+
+---
+
 This is an unofficial [Django](https://github.com/django/django) app which makes it **easy** to manage API keys for the [Django Ninja REST Framework](https://github.com/vitalik/django-ninja).
 
 **Key Features:**
@@ -64,7 +87,5 @@ def secure_endpoint(request):
 ```
 You can create now API keys from django's admin interface.
 
-## What next?
-- To support this project, please give a star on GitHub.
-- For any kind of issue feel free to open an Issue.
-- Contributors are welcome! Please refer to `CONTRIBUTING.md`.
+## License
+This project is licensed under the terms of the MIT license.
