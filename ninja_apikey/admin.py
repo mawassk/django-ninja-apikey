@@ -4,7 +4,7 @@ from .models import APIKey
 from .security import generate_key
 
 
-@admin.action(description="Revoke selected API keys")
+@admin.action(description="Revoke selected API keys")  # type: ignore
 def revoke_key(modeladmin, request, queryset):
     queryset.update(revoked=True)
 
@@ -24,7 +24,7 @@ class APIKeyAdmin(admin.ModelAdmin):
     actions = [revoke_key]
     list_filter = ["revoked"]
 
-    @admin.display
+    @admin.display  # type: ignore
     def is_active(self, obj: APIKey):
         return obj.is_valid
 
