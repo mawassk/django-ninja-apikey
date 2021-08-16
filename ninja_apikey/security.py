@@ -1,10 +1,12 @@
 from collections import namedtuple
+from typing import Any, Optional
 
 from django.contrib.auth.hashers import check_password, make_password
+from django.http import HttpRequest
 from django.utils.crypto import get_random_string
 from ninja.security import APIKeyHeader
 
-from .models import APIKey
+from .models import APIKey  # type: ignore
 
 KeyData = namedtuple("KeyData", "prefix key hashed_key")
 
@@ -16,7 +18,7 @@ def generate_key() -> KeyData:
     return KeyData(prefix, key, hashed_key)
 
 
-def check_apikey(api_key: str):
+def check_apikey(api_key: str) -> Any:
     if not api_key:
         return False
 
@@ -53,7 +55,10 @@ def check_apikey(api_key: str):
 class APIKeyAuth(APIKeyHeader):
     param_name = "X-API-Key"
 
-    def authenticate(self, request, key):
+    def authenticate(self, request: HttpRequest, key: Optional[str]) -> Any:
+        if not key:
+            return False
+
         user = check_apikey(key)
 
         if not user:
