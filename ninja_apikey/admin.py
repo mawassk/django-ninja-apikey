@@ -6,7 +6,7 @@ from .security import generate_key
 
 @admin.action(description="Revoke selected API keys")  # type: ignore
 def revoke_key(modeladmin, request, queryset):
-    queryset.update(revoked=True)
+    queryset.update(revoked=True)  # pragma: no cover
 
 
 @admin.register(APIKey)
@@ -26,7 +26,7 @@ class APIKeyAdmin(admin.ModelAdmin):
 
     @admin.display  # type: ignore
     def is_active(self, obj: APIKey):
-        return obj.is_valid
+        return obj.is_valid  # pragma: no cover
 
     is_active.boolean = True  # Display property as boolean
 
@@ -37,7 +37,7 @@ class APIKeyAdmin(admin.ModelAdmin):
             obj.hashed_key = key.hashed_key
 
             if request:
-                messages.add_message(
+                messages.add_message(  # pragma: no cover
                     request,
                     messages.WARNING,
                     f"The API key for {obj} is '{key.prefix}.{key.key}'."
