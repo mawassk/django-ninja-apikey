@@ -14,10 +14,10 @@ lint: # Run code linters
 #	TODO: mypy ninja_apikey
 
 test: # Run tests
-	pytest -v sample_project ninja_apikey
+	pytest --ds=sample_project.settings -v sample_project ninja_apikey/tests.py
 
 cov test-cov: # Run tests with coverage
-	pytest --cov=ninja_apikey --cov-report=term-missing --cov-report=xml -v sample_project ninja_apikey
+	pytest --ds=sample_project.settings --cov=ninja_apikey --cov-report=term-missing --cov-report=xml -v sample_project ninja_apikey/tests.py
 
 build: # Build project
 	make install
