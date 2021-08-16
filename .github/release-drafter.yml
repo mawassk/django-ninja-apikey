@@ -1,0 +1,25 @@
+name-template: "v$NEXT_PATCH_VERSION"
+tag-template: "v$NEXT_PATCH_VERSION"
+
+categories:
+  - title: "Breaking Changes"
+    labels: [breaking]
+  - title: "Features"
+    labels: [enhancement]
+  - title: "Fixes"
+    labels: [bug]
+  - title: "Documentation"
+    labels: [documentation]
+  - title: "Maintenance"
+    labels: [maintenance, dependencies]
+
+include-labels:
+  - "breaking"
+  - "enhancement"
+  - "bug"
+  - "documentation"
+  - "maintenance"
+  - "dependencies"
+
+template: |
+  $CHANGES
