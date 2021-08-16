@@ -1,10 +1,46 @@
 # Contributing
-For any kind of issue (**bug** report, **feature** request, **question**) feel free to **open an issue**. Before creating an issue search for related issues to prevent **duplicates**.
 
-## Contributing Code
-- Fork this repository
-- Create a **topic branch** with a short and describing name for your contribution
-- Add code to your branch
-- Create a **Pull Request**
+## Setup
 
-Please refer to any related issues in your Pull Request. For bigger changes you should first create an issue.
+Django Ninja API key uses Flit to build, package and publish the project. 
+
+It's recommended to create and activate an virtual environment before installing the project. Simply run
+```
+python -m venv .venv
+```
+and activate the environment with
+```
+source .venv/bin/activate
+```
+Now install flit:
+```
+pip install flit
+```
+Now you are ready to install the project:
+```
+make install
+```
+Once you're you can check if all works with
+```
+make test
+```
+
+## Tests
+Please make sure to write tests for your changes. You can run the tests with
+```
+make test
+```
+Also make sure the test coverage did not suffer with your contribution:
+```
+make cov
+```
+
+## Style and Linting
+You can format the code with
+```
+make format
+```
+Before opening a pull request run all linters:
+```
+make lint
+```
