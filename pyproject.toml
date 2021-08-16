@@ -53,4 +53,5 @@ test = [
     "flake8-bugbear",
     "flake8-bandit",
     "mypy",
+    "django-stubs",
     ]
