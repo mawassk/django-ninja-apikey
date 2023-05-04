@@ -53,7 +53,7 @@ def test_apikey_check():
     key.hashed_key = key_data.hashed_key
     key.save()
     assert key
-    assert user.username in str(key)
+    assert user.get_username() in str(key)
     assert not check_apikey(key_data.key)
     assert not check_apikey(key.prefix)
     assert not check_apikey(f"{key_data.prefix}.{get_random_string(10)}")
