@@ -20,7 +20,7 @@ class APIKeyAdmin(admin.ModelAdmin):
         "revoked",
         "is_active",
     ]
-    readonly_fields = ["prefix", "hashed_key", "created_at"]
+    readonly_fields = ["prefix", "hashed_key", "created_at", "key"]
     actions = [revoke_key]
     list_filter = ["revoked"]
 
@@ -33,6 +33,7 @@ class APIKeyAdmin(admin.ModelAdmin):
     def save_model(self, request, obj: APIKey, form, change):
         if not obj.prefix:  # New API key
             key = generate_key()
+            obj.key = key.key
             obj.prefix = key.prefix
             obj.hashed_key = key.hashed_key
 
